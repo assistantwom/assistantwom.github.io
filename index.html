@@ -246,11 +246,28 @@
             </div>
 
             <p>If you're interested in either of these options or have any questions, please contact us at <a href="mailto:assistantwom@gmail.com">assistantwom@gmail.com</a>.</p>
-
+            <button onclick="bookmarkPage()">Please Bookmark Me For Future Use 😊</button>
+		
     <footer>
         <p>&copy; 2024 WOM Tutorial. All rights reserved.</p>
 	<script type="text/javascript" src="//rf.revolvermaps.com/0/0/3.js?i=5gecv7fjdsp&amp;b=0&amp;s=40&amp;m=2&amp;cl=ffffff&amp;co=285ff4&amp;cd=aa0000&amp;v0=60&amp;v1=60&amp;r=1" async="async"></script>
 	    
     </footer>
+
+    <script>
+    function bookmarkPage() {
+        if (window.sidebar && window.sidebar.addPanel) { // Mozilla Firefox Bookmark
+            window.sidebar.addPanel(document.title, window.location.href, '');
+        } else if (window.external && ('AddFavorite' in window.external)) { // IE Favorite
+            window.external.AddFavorite(location.href, document.title);
+        } else if (window.opera && window.print) { // Opera Hotlist
+            this.title = document.title;
+            return true;
+        } else { // webkit - safari/chrome
+            alert('Press ' + (navigator.userAgent.toLowerCase().indexOf('mac') != -1 ? 'Command/Cmd' : 'CTRL') + ' + D to bookmark this page.');
+        }
+    }
+    </script>
+		
 </body>
 </html>
